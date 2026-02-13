@@ -9,6 +9,8 @@
   </head>
     
   <body>
+    
+    <button id="audioControl" onclick="togglePlay()" style="background-color:red;color:white;padding:10px;">Play Sound</button>
   <html>
 
 <body class="scissors">
@@ -46,6 +48,29 @@
 </html>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js'></script><script  src="./script.js"></script>
 
+    <script>
+     var audio = new Audio('music1.mp3');
+  var isPlaying = false;
+
+  function togglePlay() {
+    alert("playing");
+    var button = document.getElementById("audioControl");
+    if (isPlaying) {
+      audio.pause();
+      button.innerHTML = "Play Sound";
+    } else {
+      audio.play();
+      button.innerHTML = "Pause Sound";
+    }
+  };
+
+  audio.onplaying = function() {
+    isPlaying = true;
+  };
+  audio.onpause = function() {
+    isPlaying = false;
+  };
+</script>
   </body>
   
 </html>
